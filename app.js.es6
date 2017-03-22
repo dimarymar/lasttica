@@ -1,6 +1,7 @@
 class App {
   constructor() {
-    self.injectScript()
+    this.port = chrome.extension.connect()
+    this.injectScript()
   }
 
   injectScript() {
@@ -8,5 +9,9 @@ class App {
 
     script.src = chrome.extension.getURL(name)
     document.body.appendChild(script)
+  }
+
+  injectConnector(connector) {
+    const CONNECTOR = { 'vk.com' }
   }
 }
